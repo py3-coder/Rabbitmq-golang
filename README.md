@@ -49,8 +49,8 @@
 
 ## Directory:
 
-![image](https://github.com/py3-coder/Message-Queue-System/assets/54509629/ab3d0fb6-1873-49e6-8335-5e7d367a61e6)
 
+![image](https://github.com/py3-coder/Message-Queue-System/assets/54509629/fcc9679b-4e55-402d-8291-7cde3525fd2d)
 
 
 ## Screenshots ✔✔
