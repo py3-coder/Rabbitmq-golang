@@ -24,7 +24,7 @@
 
 | Description     | HTTP METHODS & URL      | REQUEST        | Response
 | ------------- | ------------- | --------    | --------
-| Endpoint for add Product  | [POST] /addProduct         | { <br> user_id:"int",<br> product_name:"string",<br>product_description:"string",<br> product_images:"[]string",<br> product_price:"int",<br> compressed_product_images: "[]string",<br> created_at:"time",<br> updated_at:"time"} | 200 OK (on success) <br> 400 Bad Request (if request format is invalid)
+| Endpoint for add Product  | [POST] /addProduct         | { <br> user_id:"int",<br> product_name:"string",<br>product_description:"string",<br> product_images:"[]string",<br> product_price:"int",<br> compressed_product_images: "[]string",<br> created_at:"time",<br> updated_at:"time" <br>} | 200 OK (on success) <br> 400 Bad Request (if request format is invalid)
 
 ● Create 2 Services Producer and Consumer
 
