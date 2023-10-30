@@ -62,7 +62,7 @@ func ConsumeQueue() error {
 	// Process incoming messages
 	for msg := range msgs {
 		productID := string(msg.Body)
-		log.Printf("Received product_id: %s")
+		log.Info("Received product_id:", productID)
 		i, err := strconv.Atoi(productID)
 		if err != nil {
 			log.Fatal(err)
@@ -76,7 +76,7 @@ func ConsumeQueue() error {
 }
 
 func processImages(productID int) error {
-	log.Info("Found::", productID)
+	log.Info("ProductID:", productID)
 	collection := datab.ConnectToMongoDB().Collection("product-service-db")
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
@@ -93,7 +93,13 @@ func processImages(productID int) error {
 	}
 	replacement := bson.M{
 		"product_id":                productID,
+		"product_name":              resp.ProductName,
+		"product_description":       resp.ProductDescription,
+		"product_images":            resp.ProductImages,
+		"product_price":             resp.ProductPrice,
 		"compressed_product_images": resp.CompressedProductImages,
+		"created_at":                time.Now(),
+		"updated_at":                time.Now(),
 	}
 	// replaceone ::
 	result, err := collection.ReplaceOne(ctx, filter, replacement)
@@ -101,7 +107,7 @@ func processImages(productID int) error {
 		log.Info("Error Found", err)
 	}
 	if result.MatchedCount == 1 {
-		log.Info("Replace Sucessfully::")
+		log.Info("Compressed Image Path Updated")
 	} else {
 		log.Info("Not Replaced::")
 		return err
@@ -120,13 +126,7 @@ func saveImageLocally(image string) error {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != http.StatusOK {
-		log.Info("HTTP request failed with status: %s\n", resp.Status)
-		return nil
-	}
-
 	fileName := filepath.Base(imageURL)
-
 	err = os.MkdirAll(localDirectory, os.ModePerm)
 	if err != nil {
 		log.Info("Failed to create local directory:", err)
@@ -146,7 +146,6 @@ func saveImageLocally(image string) error {
 		log.Info("Failed to save image to the local file:", err)
 		return nil
 	}
-
-	log.Info("Image downloaded and saved as %s in directory %s\n", fileName, localDirectory)
+	log.Info("Path:", localDirectory+imageURL)
 	return nil
 }
