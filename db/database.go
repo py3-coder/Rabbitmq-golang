@@ -33,11 +33,11 @@ func CreateNewDBConnection() bool {
 
 	client, err := mongo.Connect(ctx, clientOpts)
 	if err != nil {
-		log.Error("MongoDb connection drop........:", err)
+		log.Error("MongoDb connection drop:", err)
 		return false
 	}
 	Client = client
-	log.Info("Database is connected::::::::")
+	log.Info("Database is connected")
 	return Ping()
 }
 func reconnect(client *mongo.Client) {
@@ -71,7 +71,7 @@ func (cm *customermongodb) ConnectToMongoDB() *mongo.Database {
 func DisconnectToMongoDB() {
 	defer func() {
 		if err := Client.Disconnect(ctxb); err != nil {
-			log.Error("DB Disconnector break due to address port ....:", err)
+			log.Error("DB Disconnector break due to address port", err)
 		}
 	}()
 
