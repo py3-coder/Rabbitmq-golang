@@ -11,13 +11,6 @@
 
 ## A Backend application Implementing Message Queue System
 
-    Task  
-
-    1.Create an REST API server in Golang which implements the endpoints to addProduct.
-    
-    2.Push the code to GitHub and submit the URL of the git repository.
-
-
 ### 📢 Functional requirements:
 
 ● Create api to insert
