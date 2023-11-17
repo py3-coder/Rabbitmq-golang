@@ -11,13 +11,20 @@
 
 ## A Backend application Implementing Message Queue System
 
+    Task  
+
+    1.Create an REST API server in Golang which implements the endpoints to addProduct.
+    
+    2.Push the code to GitHub and submit the URL of the git repository.
+
+
 ### 📢 Functional requirements:
 
 ● Create api to insert
 
 | Description     | HTTP METHODS & URL      | REQUEST        | Response
 | ------------- | ------------- | --------    | --------
-| Endpoint for add Product  | [POST] /addProduct         | { <br> user_id:"int",<br> product_name:"string",<br>product_description:"string",<br> product_images:"[]string",<br> product_price:"int",<br> compressed_product_images: "[]string",<br> created_at:"time",<br> updated_at:"time" <br>} | 200 OK (on success) <br> 400 Bad Request (if request format is invalid)
+| Endpoint for add Product  | [POST] /addProduct         | { <br> user_id:"int",<br> product_name:"string",<br>product_description:"string",<br> product_images:"[]string",<br> product_price:"int",<br> compressed_product_images: "[]string",<br> created_at:"time",<br> updated_at:"time"} | 200 OK (on success) <br> 400 Bad Request (if request format is invalid)
 
 ● Create 2 Services Producer and Consumer
 
@@ -42,8 +49,8 @@
 
 ## Directory:
 
+![image](https://github.com/py3-coder/Message-Queue-System/assets/54509629/ab3d0fb6-1873-49e6-8335-5e7d367a61e6)
 
-![image](https://github.com/py3-coder/Message-Queue-System/assets/54509629/fcc9679b-4e55-402d-8291-7cde3525fd2d)
 
 
 ## Screenshots ✔✔
